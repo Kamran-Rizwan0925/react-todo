@@ -14,11 +14,12 @@ function TodoList({ todos, setTodos }) {
     setTodos(updatedTodos);
   }
   return (
-    <ul>
+    <ul className='container'>
       {todos.map(todo => (
         <li key={todo.id}
         onDoubleClick={() => handleToggleTodo(todo)}
-        style={{ textDecoration: todo.done ? "line-through" : ""}}>{todo.text}
+        style={{ textDecoration: todo.done ? "line-through" : ""}}
+        >{todo.text}
          <DeleteTodo todo={todo} setTodos={setTodos} />
         </li>
       ))}
@@ -32,6 +33,11 @@ function AddTodo({ setTodos }) {
 function handleAddTodo (event) {
   event.preventDefault();
   const text = event.target.elements.addTodo.value;
+  if(text.length < 1 )
+  { 
+     alert("Please enter a todo");
+    return 
+  }
   const todo = {
     id: Math.random(),
     text,
@@ -46,8 +52,8 @@ function handleAddTodo (event) {
 
 return (
   <form onSubmit={handleAddTodo}>
-    <input name="addTodo" placeholder="Add todo" ref={inputRef} />
-    <button type="submit">Submit</button>
+    <input name="addTodo" placeholder="Add todo" ref={inputRef} className="styled-input"/>
+    <button type="submit" className='submit-btn'>Submit</button>
   </form>
 );
 }
@@ -69,7 +75,7 @@ function DeleteTodo({ todo, setTodos }) {
         color: "red",
         fontWeight: "bold",
         marginLeft: 10,
-        cursor: "pointer"
+        cursor: "pointer",
       }}
     >
       x
@@ -85,9 +91,13 @@ function App() {
   ]);
   return (
     <div className="App">
-      <h1>Todo List</h1>
+      <h1 className='heading'>Todo List</h1>
       <TodoList todos={todos} setTodos={setTodos}/>
-      <AddTodo setTodos={setTodos} />
+      <div className='container'>
+        <div className='fixed-width'>
+          <AddTodo setTodos={setTodos} />
+        </div>
+      </div>
     </div>
   );
 }

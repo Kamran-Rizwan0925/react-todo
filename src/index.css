@@ -11,3 +11,53 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.heading {
+  background-color: rgba(0, 119, 255, 0.7);
+  color: white;
+  margin: 0;
+  padding: 20px 30px;
+}
+.container {
+  width: 100%;
+  text-align: center;
+  list-style-type: none;
+  margin: 20px 0px;
+}
+
+.container li{
+  width: 200px;
+  background-color: #c8eeff;
+  color: black;
+  padding: 10px 10px;
+  text-align:end;
+  height: auto;
+  margin: 10px auto;
+}
+
+.fixed-width {
+  width: 400px;
+  margin: 0 auto;
+  height: auto;
+}
+
+.styled-input{
+  border: 1px solid black;
+  padding: 10px;
+  margin: 20px 10px;
+  height: 20px;
+}
+
+.styled-input:focus{
+  border: 1px solid rgb(77, 211, 255);
+
+} 
+
+.submit-btn{
+  background-color: rgb(0, 128, 239);
+  color: white;
+  padding: 10px 15px;
+  height: 40px;
+  width: 80px;
+  border: 1px solid white;
+}
